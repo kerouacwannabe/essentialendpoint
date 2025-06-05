@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoestring Security Consulting- Cybersecurity for Small Business & Nonprofits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+        }
+        
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2rem 0;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .deliverables {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .deliverable {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .deliverable h4 {
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+        }
+        
+        .add-ons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .add-on {
+            background: white;
+            color: #333;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 250px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .add-on-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 1rem;
+        }
+        
+        .contact {
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: #667eea;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .problems {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🛡️ Shoestring Security</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Cybersecurity Made Simple for Small Organizations</h1>
+            <p class="subtitle">Stop overspending on cybersecurity tools that don't fit your needs. Get clear, actionable insights tailored for small businesses and nonprofits.</p>
+            <a href="#contact" class="cta-button">Get Your Free Security Checklist</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Are These Problems Keeping You Up at Night?</h2>
+            <div class="problems">
+                <div class="problem-card">
+                    <div class="problem-icon">🤔</div>
+                    <h3>No In-House Expertise</h3>
+                    <p>You don't have dedicated IT security staff, and you're not sure if your current setup is actually protecting you.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">❓</div>
+                    <h3>Uncertain About Risk</h3>
+                    <p>You know cybersecurity is important, but you don't know where you're vulnerable or what threats matter most to your organization.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Wasting Money</h3>
+                    <p>You're paying for cybersecurity tools that might be redundant, misaligned, or overkill for your actual needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+            <div class="service-highlight">
+                <h2>Cybersecurity Risk + Cost Optimization Assessment</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Finally understand your real cybersecurity risks and stop wasting money on tools that don't fit.</p>
+                
+                <div class="price">$1,950</div>
+                <p style="margin-bottom: 2rem;">Complete assessment package</p>
+                
+                <div class="deliverables">
+                    <div class="deliverable">
+                        <h4>📊 Risk Profile Report</h4>
+                        <p>NIST Cybersecurity Framework benchmarks tailored to your organization</p>
+                    </div>
+                    <div class="deliverable">
+                        <h4>💡 Right-Sizing Recommendations</h4>
+                        <p>Specific advice on optimizing your cybersecurity tools and costs</p>
+                    </div>
+                    <div class="deliverable">
+                        <h4>🎯 90-Minute Debrief Session</h4>
+                        <p>Personal walkthrough with executive summary and Q&A</p>
+                    </div>
+                    <div class="deliverable">
+                        <h4>✅ Compliance Checklist</h4>
+                        <p>HIPAA, PCI, SOC2 requirements as applicable to your industry</p>
+                    </div>
+                    <div class="deliverable">
+                        <h4>🗺️ 30-Day Roadmap</h4>
+                        <p>Step-by-step implementation plan with priorities and timelines</p>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="cta-button">Schedule Your Assessment</a>
+            </div>
+            
+            <h3 style="text-align: center; margin: 3rem 0 2rem; font-size: 2rem;">Optional Add-On Services</h3>
+            <div class="add-ons">
+                <div class="add-on">
+                    <h4>🔍 Vulnerability Scanning</h4>
+                    <p>Comprehensive scan of your network and systems to identify security gaps</p>
+                    <div class="add-on-price">+$400</div>
+                </div>
+                <div class="add-on">
+                    <h4>🎯 Employee Security Training</h4>
+                    <p>Phishing simulation and security awareness training for your team</p>
+                    <div class="add-on-price">+$350</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2>Why Shoestring Security?</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                <p style="margin-bottom: 2rem;">We specialize exclusively in small businesses and nonprofits with fewer than 50 employees. We understand your budget constraints and practical needs.</p>
+                <p style="margin-bottom: 2rem;">Our approach is simple: identify what actually puts you at risk, eliminate wasteful spending, and implement cost-effective protections that fit your organization.</p>
+                <p><strong>No jargon. No overselling. Just clear guidance to keep you safe without breaking the bank.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2>Ready to Stop Worrying About Cybersecurity?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Start with our free "Cybersecurity Essentials for Small Organizations" checklist</p>
+            
+            <div style="margin: 3rem 0;">
+                <a href="mailto:info@shoestringconsulting.com?subject=Free Security Checklist Request" class="cta-button">Get Your Free Checklist</a>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>info@shoestringconsulting.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>(555) 123-SECURE</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌐</span>
+                    <span>Schedule a call: calendly.com/shoestring-security</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 3rem; opacity: 0.8;">Serving small businesses and nonprofits nationwide</p>
+        </div>
+    </section>
+</body>
+</html>
